@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-bransitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+
+    <h:body>
+    <ui:composition template="/common/commonLayout.xhtml">      
+       <ui:define name="content">
+           <div align="left">  
+            <br></br>
+                    <h:form>
+                            <br></br>
+                                <h:panelGroup>
+                                    <h:outputLabel value="Придумайте логин:"/><br></br>
+                                    <h:inputText value="#{registrationBean.name}"/>
+                                    <p style="font-size:12px;">В имени пользователя могут быть только символы латинского алфавита, цифры, символы '_', '-', '.'.<br></br>
+Первый символ логина только символ латинского алфавита.<br></br>
+Длина имени пользователя должна быть не короче 4 символов и не длиннее 16 символов.</p>
+                                </h:panelGroup>
+                            
+                                <h:panelGroup>
+                                    <h:outputLabel value="Укажите свой E-mail:"/><br></br>
+                                    <h:inputText value="#{registrationBean.email}"/><br></br>
+                                    
+                                </h:panelGroup>
+                            
+                            <h:panelGroup>
+                                <h:outputLabel value="Придумайте пароль:"/><br></br>
+                                <h:inputSecret value="#{registrationBean.password}"/><br></br>
+                                
+                            </h:panelGroup>
+                            
+                            <h:panelGroup>
+                                <h:outputLabel value="Повторите пароль:"/><br></br>
+                                <h:inputSecret/><br></br>
+                                
+                            </h:panelGroup>        
+                            <br></br>
+                            <h:commandButton value="OK" action="#{registrationBean.register()}"/>
+                    </h:form>
+           </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+    
+</html>
+

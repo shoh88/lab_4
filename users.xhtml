@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+      <h:body>
+    <ui:composition template="/common/commonLayout.xhtml">        
+        <ui:define name="content">  
+            <br></br>
+            <br></br>
+            <table>
+                <h:form rendered="#{not empty usersBean.users}">
+                        <h:dataTable value="#{usersBean.users}" var="item">
+                            <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
+                            <h:column><f:facet name="header">Логин</f:facet>#{item.name}</h:column>
+                            <h:column><f:facet name="header">E-mail</f:facet>#{item.email}</h:column>
+                            <h:column>
+                            <h:commandButton value="Удалить" action="#{usersBean.remove(item)}" />
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                    <h:panelGroup rendered="#{empty usersBean.users}">
+                        <p>В системе нет пользователей!</p>
+                    </h:panelGroup>
+            </table>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>
